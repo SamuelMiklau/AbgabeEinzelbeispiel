@@ -40,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         bttnCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AltSumme as = new AltSumme();
+                String answer = "";
+                answer = as.calculate(txtMatrklNr.getText().toString());
+                String textFromServerMessage = txtAntwort.getText().toString();
+
+                txtAntwort.setText(textFromServerMessage + '\n' + answer);
+
 
             }
         });
