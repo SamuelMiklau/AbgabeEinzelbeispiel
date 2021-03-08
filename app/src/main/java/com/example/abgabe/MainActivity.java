@@ -37,15 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
                 try{
                     Thread t = new Thread();
-                    t.sendMessage(number);
+                    t.sendMessage(number); //Sends entered Number to class Thread
 
-                    t.start();
+                    t.start(); // Starts the excecution of Thread
 
-                    t.join();
+                    t.join(); // Waits until class Thread finished all the operations
 
-                    txtAntwort.setText(t.answer());
+                    txtAntwort.setText(t.answer());//Fills Text Box with answer from Server
                 }catch (Exception e){
-                    txtAntwort.setText(e.toString());
+                    txtAntwort.setText(e.toString()); //If an Error occurs Text Box is filled with Exception Message
                 }
             }
 
@@ -58,14 +58,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AltSumme as = new AltSumme();
                 String answer = "";
-                answer = as.calculate(txtMatrklNr.getText().toString());
-                String textFromServerMessage = txtAntwort.getText().toString();
+                answer = as.calculate(txtMatrklNr.getText().toString()); //Stores caluclated Value from class AltSumme in String answer
+                String textFromServerMessage = txtAntwort.getText().toString(); //Creates a temporary place for the Server message which is already in the Text box.
 
-                txtAntwort.setText(textFromServerMessage + '\n' + answer);
+                txtAntwort.setText(textFromServerMessage + '\n' + answer); // Fills Text box with Text from Server and the Answer from the Calculation
 
 
             }
         });
     }
-    
+
 }
