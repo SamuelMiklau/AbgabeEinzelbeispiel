@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtAntwort;
     Button bttnCalc;
     TextView txtOrder;
-
+    String number;
 
 
     @Override
@@ -33,8 +33,24 @@ public class MainActivity extends AppCompatActivity {
         bttnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                number = txtMatrklNr.getText().toString();
 
+                try{
+                    Thread t = new Thread();
+                    t.sendMessage(number);
+
+                    t.start();
+
+                    t.join();
+
+                    txtAntwort.setText(t.answer());
+                }catch (Exception e){
+                    txtAntwort.setText(e.toString());
+                }
             }
+
+
+
         });
 
         bttnCalc.setOnClickListener(new View.OnClickListener() {
@@ -51,4 +67,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    
 }
