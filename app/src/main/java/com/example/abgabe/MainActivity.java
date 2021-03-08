@@ -43,10 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
                     t.join(); // Waits until class Thread finished all the operations
 
-                    String answerSpace = t.answer();
-                    String answerFromCalc = txtAntwort.getText().toString();
-
-                    txtAntwort.setText(answerSpace + '\n' + answerFromCalc);//Fills Text Box with answer from Server
+                    txtAntwort.setText(t.answer());//Fills Text Box with answer from Server
                 }catch (Exception e){
                     txtAntwort.setText(e.toString()); //If an Error occurs Text Box is filled with Exception Message
                 }
