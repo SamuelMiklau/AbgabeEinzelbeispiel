@@ -59,9 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 AltSumme as = new AltSumme();
                 String answer = "";
                 answer = as.calculate(txtMatrklNr.getText().toString()); //Stores caluclated Value from class AltSumme in String answer
-                String textFromServerMessage = txtAntwort.getText().toString(); //Creates a temporary place for the Server message which is already in the Text box.
 
-                txtAntwort.setText(textFromServerMessage + '\n' + answer); // Fills Text box with Text from Server and the Answer from the Calculation
+                txtAntwort.setText(answer); // Fills Text box with Text from calculation
 
 
             }
